@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import { logRequests } from "./middlewares/requestLogger.middleware";
+import userRouter from "./routes/user.router";
 dotenv.config();
 
 class Main {
@@ -21,9 +22,7 @@ class Main {
     this.app.use(logRequests);
   }
   intializeRoutes() {
-    this.app.get("/", (req: Request, res: Response, next: NextFunction) => {
-      res.send({ msg: "Hi Vamshi Baja 👋👋👋" });
-    });
+    this.app.use("/api/user", userRouter);
   }
   errorHandler() {
     this.app.use((err: any, req: Request, res: Response, next: NextFunction) => {
