@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import { logRequests } from "./middlewares/requestLogger.middleware";
-import userRouter from "./routes/user.router";
+import UserRouter from "./routes/user.router";
 dotenv.config();
 
 class Main {
@@ -22,7 +22,7 @@ class Main {
     this.app.use(logRequests);
   }
   intializeRoutes() {
-    this.app.use("/api/user", userRouter);
+    this.app.use("/api/user", UserRouter);
   }
   errorHandler() {
     this.app.use((err: any, req: Request, res: Response, next: NextFunction) => {

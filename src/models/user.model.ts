@@ -7,8 +7,8 @@ class User {
   constructor() {
     this.userSchema = new mongoose.Schema(
       {
-        userName: { type: String, required: true, minlength: 6, maxlength: 16 },
-        password: { type: String, required: true, minlength: 10, maxlength: 20 },
+        userName: { type: String, required: true },
+        password: { type: String, required: true, minlength: 10 },
       },
       { timestamps: true }
     );

@@ -1,7 +1,8 @@
-export default interface userModel {
+import { Document } from "mongoose";
+
+export default interface UserModel {
   userName: string;
   password: string;
-}
-export default interface otp {
-  otp: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
